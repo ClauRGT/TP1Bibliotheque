@@ -47,4 +47,4 @@ class BandeDessine(Document):
         nbr_pages = input("Document.nbr_pages: ")
         isbn = input("Document.isbn: ")
         return Document(titre, type_doc, nbr_pages, isbn)
-    print(lire_clavier())
+        print(lire_clavier())

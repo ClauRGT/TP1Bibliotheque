@@ -22,27 +22,29 @@ def afficher_menu(lenth):
 
 lenth = 50
 choix = ''
-
+myBiblio = Biblio()
 while choix != 'Q':
     afficher_menu(lenth)
     choix = input('Choisissez une action:').strip()
     if choix == '1':
-        Biblio.ajouter_adherent()
+        myBiblio.ajouter_adherent()
     elif choix == '2':
-        Biblio.supprimer_adherent()
+        myBiblio.supprimer_adherent()
     elif choix == '3':
-        Biblio.lister_adherent()
+        myBiblio.lister_adherent()
     elif choix == '4':
-        Biblio.ajouter_document()
+        myDocument = BandeDessine.lire_clavier()
+        myBiblio.ajouter_document(myDocument)
     elif choix == '5':
-        Biblio.supprimer_document()
+        myBiblio.supprimer_document()
     elif choix == '6':
-        Biblio.lister_document()
+        myBiblio.lister_document()
+        anykey = input()
     elif choix == '7':
-        Biblio.ajouter_emprunt()
+        myBiblio.ajouter_emprunt()
     elif choix == '8':
-        Biblio.supprimer_emprunt()
+        myBiblio.supprimer_emprunt()
     elif choix == '9':
-        Biblio.lister_emprunt()
+        myBiblio.lister_emprunt()
     else:
         choix = input('Choix erroné!  Re-entrez:')

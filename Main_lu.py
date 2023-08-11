@@ -1,5 +1,6 @@
 # -*- coding:utf-8 -*-
-
+from pkgbibliotheque.GestionBiblio import *
+from pkgbibliotheque.GestionDocument import *
 def afficher_menu(lenth):
     print('*'*lenth)
     print('*', end = '')
@@ -26,22 +27,22 @@ while choix != 'Q':
     afficher_menu(lenth)
     choix = input('Choisissez une action:').strip()
     if choix == '1':
-        pass
+        Biblio.ajouter_adherent()
     elif choix == '2':
-        pass
+        Biblio.supprimer_adherent()
     elif choix == '3':
-        pass
+        Biblio.lister_adherent()
     elif choix == '4':
-        pass
+        Biblio.ajouter_document()
     elif choix == '5':
-        pass
+        Biblio.supprimer_document()
     elif choix == '6':
-        pass
+        Biblio.lister_document()
     elif choix == '7':
-        pass
+        Biblio.ajouter_emprunt()
     elif choix == '8':
-        pass
+        Biblio.supprimer_emprunt()
     elif choix == '9':
-        pass
+        Biblio.lister_emprunt()
     else:
         choix = input('Choix erroné!  Re-entrez:')

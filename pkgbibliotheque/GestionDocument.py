@@ -12,10 +12,11 @@ class Document:
 
 class Livre(Document):
 
-    def __init__(self, doc, auteur, maison_edit):
+    def __init__(self, doc, auteur, maison_edit, dispo):
         super().__init__(doc.titre, doc.type_doc, doc.nbr_page, doc.isbn)
         self.auteur = auteur
         self.maison_edit = maison_edit
+        self.dispo = dispo
 
     def __str__(self):
         return "Livre | Titre du livre: " + self.titre + " Nombre de page: " + str(self.nbr_pages) + "ISBN: " + str(self.isbn) + "Auteur: " + self.auteur + " Maison d'édition: " + self.maison_edit
@@ -30,9 +31,10 @@ class Journal(Document):
             self.isbn) + "Date de publication " + self.date_publication
 
 class BandeDessine(Document):
-    def __init__(self, doc, date_publication):
+    def __init__(self, doc, date_publication, dessinateur):
         super().__init__(doc.titre, doc.type_doc, doc.nbr_page, doc.isbn)
         self.date_publication = date_publication
+        self.dessinateur = dessinateur
 
     def __str__(self):
         return "Livre | Titre du livre: " + self.titre + " Nombre de page: " + str(self.nbr_pages) + "ISBN: " + str(self.isbn) + "Date de publication " + self.date_publication

@@ -33,8 +33,7 @@ while choix != 'Q':
     elif choix == '3':
         myBiblio.lister_adherent()
     elif choix == '4':
-        myDocument = BandeDessine.lire_clavier()
-        myBiblio.ajouter_document(myDocument)
+        myBiblio.ajouter_document()
     elif choix == '5':
         myBiblio.supprimer_document()
     elif choix == '6':

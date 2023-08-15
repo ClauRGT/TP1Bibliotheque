@@ -1,5 +1,5 @@
 # -*- coding:utf-8 -*-
-from pkgbibliotheque.GestionBiblio import *
+from pkgbibliotheque.GestionBiblio_lu import *
 from pkgbibliotheque.GestionDocument import *
 def afficher_menu(lenth):
     print('*'*lenth)
@@ -10,10 +10,10 @@ def afficher_menu(lenth):
     print(f"{'Faites un choix':^{lenth-2}}", end = '')
     print('*')
     print('*' * lenth)
-    liste_menu = ('1    Ajouter adhérent', '2    Supprimer adhérent', '3    Afficher tous les adhérents',
+    liste_menu = ['1    Ajouter adhérent', '2    Supprimer adhérent', '3    Afficher tous les adhérents',
                   '4    Ajouter Document', '5    Supprimer Document', '6    Afficher tous les Documents',
                   '7    Ajouter Emprunts', "8    Retour d'un Emprunt", '9    Afficher tous les Emprunts',
-                  'Q    Quitter')
+                  'Q    Quitter']
     for x in liste_menu:
         print(f"{'*':<5}", end='')
         print(f"{x:<{lenth - 6}}", end='')
@@ -23,6 +23,7 @@ def afficher_menu(lenth):
 lenth = 50
 choix = ''
 myBiblio = Biblio()
+
 while choix != 'Q':
     afficher_menu(lenth)
     choix = input('Choisissez une action:').strip()

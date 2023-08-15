@@ -1,3 +1,5 @@
+from pkgbibliotheque.GestionDocument import *
+
 class Emprunt:
     def __init__(self, doc, adherent, employe, date_pret):
         self.doc = doc
@@ -15,7 +17,8 @@ class Biblio:
         self.liste_doc = []
         self.liste_adherent = []
 
-    def ajouter_document(self, doc):
+    def ajouter_document(self):
+        doc = BandeDessine.lire_clavier()
         self.liste_doc.append(doc)
 
     def lister_document(self):

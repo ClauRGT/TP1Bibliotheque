@@ -1,14 +1,17 @@
 from pkgbibliotheque.GestionDocument_lu import *
+from pkgbibliotheque.GestionPersonne_lu import *
 
 class Emprunt:
-    def __init__(self, doc, adherent, employe, date_pret):
+    def __init__(self, doc, adherent, employe, date_pret, date_retour):
         self.doc = doc
         self.adherent = adherent
         self.employe = employe
         self.date_pret = date_pret
+        self.date_retour = date_retour
 
     def __str__(self):
-        return "Livre : " + str(self.doc) + "Adherent: " + self.adherent + "Employé: " + self.employe + "Date du pret: " + self.date_pret
+        return "Livre : " + str(self.doc) + "Adherent: " + self.adherent + "Employé: " + self.employe \
+            + "Date du pret: " + self.date_pret + "Date du retour: " + self.date_retour
 
 class Biblio:
 
@@ -32,7 +35,8 @@ class Biblio:
         return self.liste_doc[doc_index]
 # ----------------------------------------------
 
-    def ajouter_adherent(self, adherent):
+    def ajouter_adherent(self):
+        adherent = Adherent.lire_clavier()
         self.liste_adherent.append(adherent)
 
     def lister_adherent(self):

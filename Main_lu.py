@@ -1,6 +1,9 @@
 # -*- coding:utf-8 -*-
 from pkgbibliotheque.GestionBiblio_lu import *
-from pkgbibliotheque.GestionDocument import *
+from pkgbibliotheque.GestionPersonne_lu import *
+from pkgbibliotheque.GestionDocument_lu import *
+import csv
+
 def afficher_menu(lenth):
     print('*'*lenth)
     print('*', end = '')
@@ -20,9 +23,22 @@ def afficher_menu(lenth):
         print('*')
     print('*' * lenth)
 
+def lire_Adherents(fich):
+    liste_Adherents = []
+    with open(fich,'r') as fich:
+        reader = csv.reader(fich, delimiter='\t')
+        for ligne in reader:
+            nom = ligne[0]
+            prenom = ligne[1]
+            age = ligne[2]
+            num = ligne[3]
+            liste_Adherents.append(Adherent(Personne(nom, prenom, age), num))
+    return liste_Adherents
+
 lenth = 50
 choix = ''
 myBiblio = Biblio()
+myBiblio.liste_adherent = lire_Adherents('Adherents.cvs')
 
 while choix != 'Q':
     afficher_menu(lenth)
@@ -30,9 +46,22 @@ while choix != 'Q':
     if choix == '1':
         myBiblio.ajouter_adherent()
     elif choix == '2':
-        myBiblio.supprimer_adherent()
+        nom = input("Nom:").strip()
+        prenom = input("Prenom:").strip()
+        trouve = False
+        for x in myBiblio.liste_adherent:
+            if x.nom == nom and x.prenom == prenom:
+                myBiblio.supprimer_adherent(x)
+                trouve = True
+                print(x)
+                print("Déjà supprimé!")
+                anykey = input()
+        if trouve == False:
+            print("Ne trouve pas l'adherent!")
+
     elif choix == '3':
         myBiblio.lister_adherent()
+        anykey = input()
     elif choix == '4':
         myBiblio.ajouter_document()
     elif choix == '5':
@@ -46,5 +75,6 @@ while choix != 'Q':
         myBiblio.supprimer_emprunt()
     elif choix == '9':
         myBiblio.lister_emprunt()
+        anykey = input()
     else:
         choix = input('Choix erroné!  Re-entrez:')

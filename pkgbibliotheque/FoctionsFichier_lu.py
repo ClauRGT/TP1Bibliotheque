@@ -1,5 +1,6 @@
 from pkgbibliotheque.GestionPersonne_lu import *
 from pkgbibliotheque.GestionDocument_lu import *
+from pkgbibliotheque.GestionBiblio_lu import *
 import csv
 
 def lire_Adherents(fichier):

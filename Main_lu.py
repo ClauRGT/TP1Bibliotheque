@@ -37,6 +37,7 @@ while choix != 'Q':
 
     if choix == '1':
         myBiblio.ajouter_adherent()
+        save_Adherents('Adherents.csv', myBiblio.liste_adherent)
     elif choix == '2':
         nom = input("Nom:").strip()
         prenom = input("Prenom:").strip()
@@ -50,7 +51,7 @@ while choix != 'Q':
         if trouve == False:
             print("Ne trouve pas l'adherent!")
         anykey = input()
-
+        save_Adherents('Adherents.csv', myBiblio.liste_adherent)
 
     elif choix == '3':
         myBiblio.lister_adherent()
@@ -63,6 +64,7 @@ while choix != 'Q':
             doc_type = input(
                 "Type du Document: \n\t 1: Journal\t 2: Livre\t 3:BandeDessine\t 4: Dictionnaire\n Faire votre choix: [1,2,3,4]:").strip()
         myBiblio.ajouter_document(doc_type)
+        save_Documents('Documents.csv', myBiblio.liste_doc)
 
     elif choix == '5':
         titre = input("Titre:").strip()
@@ -76,6 +78,7 @@ while choix != 'Q':
                 anykey = input()
         if trouve == False:
             print("Ne trouve pas le Document!")
+        save_Documents('Documents.csv', myBiblio.liste_doc)
         anykey = input()
 
     elif choix == '6':
@@ -88,37 +91,44 @@ while choix != 'Q':
         position = -2
         while trouve_titre == False:
             for x in myBiblio.liste_doc:
-                if x.titre == titre and x.dispo == 'True':
+                if str(x.titre).strip() == titre and x.dispo == 'Oui':
                     trouve_titre = True
                     position = int(myBiblio.liste_doc.index(x))
-                else:
+            if trouve_titre == False:
                     titre = input("Re-Entrez le Titre: ").strip()
         nom = input("Nom_Adherent:").strip()
         prenom = input("Prenom_Adherent:").strip()
         trouve_adherent = False
         while trouve_adherent == False:
             for x in myBiblio.liste_adherent:
-                if x.nom == nom and x.prenom == prenom:
+                if str(x.nom).strip() == nom and str(x.prenom).strip() == prenom:
                     trouve_adherent = True
-                else:
+            if trouve_adherent == False:
                     nom = input("Nom_Adherent:").strip()
                     prenom = input("Prenom_Adherent:").strip()
         empr = Emprunt(titre, nom, prenom)
-        myBiblio.liste_doc[position].dispo = 'False'
+        myBiblio.liste_doc[position].dispo = 'Non'
         myBiblio.ajouter_emprunt(empr)
+        save_Emprunts('Emprunts.csv', myBiblio.liste_emprunts)
+        save_Documents('Documents.csv', myBiblio.liste_doc)
 
     elif choix == '8':
         titre = input("Titre:").strip()
         trouve = False
+        position = -2
         for x in myBiblio.liste_emprunts:
             if x.titre == titre:
                 myBiblio.supprimer_emprunt(x)
+                position = int(myBiblio.liste_doc.index(x))
+                myBiblio.liste_doc[position].dispo = 'Oui'
                 trouve = True
                 print(x)
                 print("Déjà supprimé!")
         if trouve == False:
             print("Ne trouve pas le Document!")
         anykey = input()
+        save_Emprunts('Emprunts.csv', myBiblio.liste_emprunts)
+        save_Documents('Documents.csv', myBiblio.liste_doc)
 
     elif choix == '9':
         myBiblio.lister_emprunt()

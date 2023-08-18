@@ -73,3 +73,22 @@ def save_Documents(fichier, liste):
                     ligne = [x.type, x.sous_class, x.titre, x.auteur]
                     writer.writerow(ligne)
 
+def lire_Emprunts(fichier):
+    liste_Emprunts = []
+    with open(fichier,'r') as fich:
+        reader = csv.reader(fich, delimiter='\t')
+        for ligne in reader:
+            titre = ligne[0]
+            nom = ligne[1]
+            prenom = ligne[2]
+            date_pret = ligne[3]
+            date_retour = ligne[4]
+            liste_Emprunts.append(Emprunt(titre, nom, prenom, date_pret, date_retour))
+    return liste_Emprunts
+
+def save_Emprunts(fichier, liste):
+    with open(fichier, mode = 'w') as fich:
+        writer = csv.writer(fich, delimiter = ';')
+        for x in liste:
+            ligne = [x.tire, x.nom, x.prenom, x.date_pret, x.date_retour]
+            writer.writerow(ligne)

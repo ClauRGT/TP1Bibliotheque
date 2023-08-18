@@ -28,10 +28,13 @@ lenth = 50
 choix = ''
 myBiblio = Biblio()
 myBiblio.liste_adherent = lire_Adherents('Adherents.csv')
+myBiblio.liste_doc = lire_Documents('Documents.csv')
+myBiblio.liste_emprunts = lire_Emprunts('Emprunts.csv')
 
 while choix != 'Q':
     afficher_menu(lenth)
     choix = input('Choisissez une action:').strip()
+
     if choix == '1':
         myBiblio.ajouter_adherent()
     elif choix == '2':
@@ -44,24 +47,79 @@ while choix != 'Q':
                 trouve = True
                 print(x)
                 print("Déjà supprimé!")
-                anykey = input()
         if trouve == False:
             print("Ne trouve pas l'adherent!")
+        anykey = input()
+
 
     elif choix == '3':
         myBiblio.lister_adherent()
         anykey = input()
+
     elif choix == '4':
-        myBiblio.ajouter_document()
+        doc_type = input(
+            "Type du Document: \n\t 1: Journal\t 2: Livre\t 3:BandeDessine\t 4: Dictionnaire\n Faire votre choix: [1,2,3,4]:").strip()
+        while doc_type not in ('1', '2', '3', '4'):
+            doc_type = input(
+                "Type du Document: \n\t 1: Journal\t 2: Livre\t 3:BandeDessine\t 4: Dictionnaire\n Faire votre choix: [1,2,3,4]:").strip()
+        myBiblio.ajouter_document(doc_type)
+
     elif choix == '5':
-        myBiblio.supprimer_document()
+        titre = input("Titre:").strip()
+        trouve = False
+        for x in myBiblio.liste_doc:
+            if x.titre == titre:
+                myBiblio.supprimer_document(x)
+                trouve = True
+                print(x)
+                print("Déjà supprimé!")
+                anykey = input()
+        if trouve == False:
+            print("Ne trouve pas le Document!")
+        anykey = input()
+
     elif choix == '6':
         myBiblio.lister_document()
         anykey = input()
+
     elif choix == '7':
-        myBiblio.ajouter_emprunt()
+        titre = input("Titre: ").strip()
+        trouve_titre = False
+        position = -2
+        while trouve_titre == False:
+            for x in myBiblio.liste_doc:
+                if x.titre == titre and x.dispo == 'True':
+                    trouve_titre = True
+                    position = int(myBiblio.liste_doc.index(x))
+                else:
+                    titre = input("Re-Entrez le Titre: ").strip()
+        nom = input("Nom_Adherent:").strip()
+        prenom = input("Prenom_Adherent:").strip()
+        trouve_adherent = False
+        while trouve_adherent == False:
+            for x in myBiblio.liste_adherent:
+                if x.nom == nom and x.prenom == prenom:
+                    trouve_adherent = True
+                else:
+                    nom = input("Nom_Adherent:").strip()
+                    prenom = input("Prenom_Adherent:").strip()
+        empr = Emprunt(titre, nom, prenom)
+        myBiblio.liste_doc[position].dispo = 'False'
+        myBiblio.ajouter_emprunt(empr)
+
     elif choix == '8':
-        myBiblio.supprimer_emprunt()
+        titre = input("Titre:").strip()
+        trouve = False
+        for x in myBiblio.liste_emprunts:
+            if x.titre == titre:
+                myBiblio.supprimer_emprunt(x)
+                trouve = True
+                print(x)
+                print("Déjà supprimé!")
+        if trouve == False:
+            print("Ne trouve pas le Document!")
+        anykey = input()
+
     elif choix == '9':
         myBiblio.lister_emprunt()
         anykey = input()

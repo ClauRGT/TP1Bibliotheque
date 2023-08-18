@@ -1,18 +1,26 @@
 from pkgbibliotheque.GestionDocument_lu import *
 from pkgbibliotheque.GestionPersonne_lu import *
+from datetime import datetime, timedelta
 
 class Emprunt:
-    def __init__(self, doc, adherent, employe, date_pret, date_retour):
-        self.doc = doc
-        self.adherent = adherent
-        self.employe = employe
+    def __init__(self, titre, nom, prenom, date_pret = datetime.now().date(), date_retour = datetime.now().date() + timedelta(days=15)):
+        self.titre = titre
+        self.nom = nom
+        self.prenom = prenom
         self.date_pret = date_pret
         self.date_retour = date_retour
 
     def __str__(self):
-        return "Livre : " + str(self.doc) + "Adherent: " + self.adherent + "Employé: " + self.employe \
-            + "Date du pret: " + self.date_pret + "Date du retour: " + self.date_retour
+        return "Livre : " + str(self.titre) + "\tAdherent_nom: " + self.nom + "\tAdherent_prenom: " + self.prenom \
+            + "\tDate du pret: " + str(self.date_pret) + "\tDate de retour: " + str(self.date_retour)
 
+    @staticmethod
+    def lire_clavier():
+        print("------- Saisir Emprunt -------")
+        titre = input("Journal.titre: ")
+        nom = input("Nom_Adherent: ")
+        prenom = input("Prenom_Adherent: ")
+        return Emprunt(titre, nom, prenom)
 class Biblio:
 
     def __init__(self):
@@ -20,8 +28,15 @@ class Biblio:
         self.liste_doc = []
         self.liste_adherent = []
 
-    def ajouter_document(self):
-        doc = BandeDessine.lire_clavier()
+    def ajouter_document(self, doc_type):
+        if doc_type == '1':
+            doc = Journal.lire_clavier()
+        elif doc_type == '2':
+            doc = Livre.lire_clavier()
+        elif doc_type == '3':
+            doc = BandeDessine.lire_clavier()
+        elif doc_type == '4':
+            doc = Dictionnaire.lire_clavier()
         self.liste_doc.append(doc)
 
     def lister_document(self):

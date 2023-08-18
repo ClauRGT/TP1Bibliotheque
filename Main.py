@@ -119,11 +119,13 @@ while choix != 'Q':
         for x in myBiblio.liste_emprunts:
             if x.titre == titre:
                 myBiblio.supprimer_emprunt(x)
-                position = int(myBiblio.liste_doc.index(x))
-                myBiblio.liste_doc[position].dispo = 'Oui'
+                for y in myBiblio.liste_doc:
+                    if y.titre == titre:
+                        position = int(myBiblio.liste_doc.index(y))
+                        myBiblio.liste_doc[position].dispo = 'Oui'
                 trouve = True
                 print(x)
-                print("Déjà supprimé!")
+                print("Déjà retourné!")
         if trouve == False:
             print("Ne trouve pas le Document!")
         anykey = input()

@@ -6,7 +6,7 @@ import csv
 def lire_Adherents(fichier):
     liste_Adherents = []
     with open(fichier,'r') as fich:
-        reader = csv.reader(fich, delimiter='\t')
+        reader = csv.reader(fich, delimiter=';')
         for ligne in reader:
             nom = ligne[0]
             prenom = ligne[1]
@@ -16,7 +16,7 @@ def lire_Adherents(fichier):
     return liste_Adherents
 
 def save_Adherents(fichier, liste):
-    with open(fichier, mode = 'w') as fich:
+    with open(fichier, mode = 'w', newline = '') as fich:
         writer = csv.writer(fich, delimiter = ';')
         for x in liste:
             ligne = [x.nom, x.prenom, x.age, x.num_adherent]
@@ -57,7 +57,7 @@ def lire_Documents(fichier):
     return liste_documents
 
 def save_Documents(fichier, liste):
-    with open(fichier, mode = 'w') as fich:
+    with open(fichier, mode = 'w', newline = '') as fich:
         writer = csv.writer(fich, delimiter = ';')
         for x in liste:
             if x.type == 'Journal':
@@ -77,7 +77,7 @@ def save_Documents(fichier, liste):
 def lire_Emprunts(fichier):
     liste_Emprunts = []
     with open(fichier,'r') as fich:
-        reader = csv.reader(fich, delimiter='\t')
+        reader = csv.reader(fich, delimiter=';')
         for ligne in reader:
             titre = ligne[0]
             nom = ligne[1]
@@ -88,8 +88,8 @@ def lire_Emprunts(fichier):
     return liste_Emprunts
 
 def save_Emprunts(fichier, liste):
-    with open(fichier, mode = 'w') as fich:
+    with open(fichier, mode = 'w', newline ='') as fich:
         writer = csv.writer(fich, delimiter = ';')
         for x in liste:
-            ligne = [x.tire, x.nom, x.prenom, x.date_pret, x.date_retour]
+            ligne = [x.titre, x.nom, x.prenom, x.date_pret, x.date_retour]
             writer.writerow(ligne)

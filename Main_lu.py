@@ -2,7 +2,7 @@
 from pkgbibliotheque.GestionBiblio_lu import *
 from pkgbibliotheque.GestionPersonne_lu import *
 from pkgbibliotheque.GestionDocument_lu import *
-import csv
+from pkgbibliotheque.FoctionsFichier_lu import *
 
 def afficher_menu(lenth):
     print('*'*lenth)
@@ -23,22 +23,11 @@ def afficher_menu(lenth):
         print('*')
     print('*' * lenth)
 
-def lire_Adherents(fich):
-    liste_Adherents = []
-    with open(fich,'r') as fich:
-        reader = csv.reader(fich, delimiter='\t')
-        for ligne in reader:
-            nom = ligne[0]
-            prenom = ligne[1]
-            age = ligne[2]
-            num = ligne[3]
-            liste_Adherents.append(Adherent(Personne(nom, prenom, age), num))
-    return liste_Adherents
 
 lenth = 50
 choix = ''
 myBiblio = Biblio()
-myBiblio.liste_adherent = lire_Adherents('Adherents.cvs')
+myBiblio.liste_adherent = lire_Adherents('Adherents.csv')
 
 while choix != 'Q':
     afficher_menu(lenth)

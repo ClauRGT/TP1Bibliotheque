@@ -1,10 +1,9 @@
 from pkgbibliotheque.GestionPersonne_lu import *
-from pkgbibliotheque.FoctionsFichier_lu import *
-
 import csv
-def lire_Adherents(fich):
+
+def lire_Adherents(fichier):
     liste_Adherents = []
-    with open(fich,'r') as fich:
+    with open(fichier,'r') as fich:
         reader = csv.reader(fich, delimiter='\t')
         for ligne in reader:
             nom = ligne[0]
@@ -14,10 +13,9 @@ def lire_Adherents(fich):
             liste_Adherents.append(Adherent(Personne(nom, prenom, age), num))
     return liste_Adherents
 
-liste_a = lire_Adherents('Adherents.csv')
-liste_a.append(Adherent(Personne('l1','g1','34'),'11456'))
-for x in liste_a:
-    print(x)
-
-
-save_Adherents('abc.csv', liste_a)
+def save_Adherents(fichier, liste):
+    with open(fichier, mode = 'w') as fich:
+        writer = csv.writer(fich, delimiter = ';')
+        for x in liste:
+            ligne = [x.nom, x.prenom, x.age, x.num_adherent]
+            writer.writerow(ligne)

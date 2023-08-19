@@ -88,29 +88,36 @@ while choix != 'Q':
     elif choix == '7':
         titre = input("Titre: ").strip()
         trouve_titre = False
+        quitter = False
         position = -2
-        while trouve_titre == False:
+        while trouve_titre == False and quitter == False:
             for x in myBiblio.liste_doc:
                 if str(x.titre).strip() == titre and x.dispo == 'Oui':
                     trouve_titre = True
                     position = int(myBiblio.liste_doc.index(x))
             if trouve_titre == False:
-                    titre = input("Re-Entrez le Titre: ").strip()
-        nom = input("Nom_Adherent:").strip()
-        prenom = input("Prenom_Adherent:").strip()
-        trouve_adherent = False
-        while trouve_adherent == False:
-            for x in myBiblio.liste_adherent:
-                if str(x.nom).strip() == nom and str(x.prenom).strip() == prenom:
-                    trouve_adherent = True
-            if trouve_adherent == False:
-                    nom = input("Nom_Adherent:").strip()
-                    prenom = input("Prenom_Adherent:").strip()
-        empr = Emprunt(titre, nom, prenom)
-        myBiblio.liste_doc[position].dispo = 'Non'
-        myBiblio.ajouter_emprunt(empr)
-        save_Emprunts('Emprunts.csv', myBiblio.liste_emprunts)
-        save_Documents('Documents.csv', myBiblio.liste_doc)
+                titre = input("Re-Entrez le Titre ou <quit> pour quitter: ").strip()
+                if titre == 'quit':
+                    quitter = True
+        if quitter == False:
+            nom = input("Nom_Adherent:").strip()
+            prenom = input("Prenom_Adherent:").strip()
+            trouve_adherent = False
+            while trouve_adherent == False and quitter == False:
+                for x in myBiblio.liste_adherent:
+                    if str(x.nom).strip() == nom and str(x.prenom).strip() == prenom:
+                        trouve_adherent = True
+                if trouve_adherent == False:
+                    nom = input("Nom_Adherent ou <quit> pour quitter:").strip()
+                    prenom = input("Prenom_Adherent ou <quit> pour quitter:").strip()
+                    if nom == 'quit' or prenom == 'quit':
+                        quitter = True
+            if quitter == False:
+                empr = Emprunt(titre, nom, prenom)
+                myBiblio.liste_doc[position].dispo = 'Non'
+                myBiblio.ajouter_emprunt(empr)
+                save_Emprunts('Emprunts.csv', myBiblio.liste_emprunts)
+                save_Documents('Documents.csv', myBiblio.liste_doc)
 
     elif choix == '8':
         titre = input("Titre:").strip()

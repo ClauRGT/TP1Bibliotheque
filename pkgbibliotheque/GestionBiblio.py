@@ -43,8 +43,8 @@ class Biblio:
         for x in self.liste_doc:
             print(x)
 
-    def supprimer_document(self, adherent):
-        self.liste_adherent.remove(adherent)
+    def supprimer_document(self, doc):
+        self.liste_doc.remove(doc)
 
     def get_document(self, doc_index):
         return self.liste_doc[doc_index]

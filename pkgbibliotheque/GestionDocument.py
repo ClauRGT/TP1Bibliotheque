@@ -43,11 +43,12 @@ class Livre(Volume):
     @staticmethod
     def lire_clavier():
         print("------- Saisir Livre -------")
-        titre = input("Livre.titre: ")
-        auteur = input("Livre.auteur: ")
-        dispo = input("Livre.dispo: ")
+        titre = input("Livre.titre: ").strip()
+        auteur = input("Livre.auteur: ").strip()
+        dispo = input("Livre.dispo: <Oui> or <Non> ").strip()
+        while dispo not in ('Oui', 'Non'):
+            dispo = input("Livre.dispo: <Oui> or <Non> ").strip()
         return Livre(Volume(Document(titre), auteur), dispo)
-
 
 class BandeDessine(Volume):
     def __init__(self, vol):

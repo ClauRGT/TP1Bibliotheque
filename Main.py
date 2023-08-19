@@ -118,6 +118,8 @@ while choix != 'Q':
                 myBiblio.ajouter_emprunt(empr)
                 save_Emprunts('Emprunts.csv', myBiblio.liste_emprunts)
                 save_Documents('Documents.csv', myBiblio.liste_doc)
+                print(empr)
+                anykey = input()
 
     elif choix == '8':
         titre = input("Titre:").strip()
@@ -135,12 +137,11 @@ while choix != 'Q':
                 print("Déjà retourné!")
         if trouve == False:
             print("Ne trouve pas le Document!")
-        anykey = input()
         save_Emprunts('Emprunts.csv', myBiblio.liste_emprunts)
         save_Documents('Documents.csv', myBiblio.liste_doc)
+        anykey = input()
 
     elif choix == '9':
         myBiblio.lister_emprunt()
         anykey = input()
-    else:
-        choix = input('Choix erroné!  Re-entrez:')
+

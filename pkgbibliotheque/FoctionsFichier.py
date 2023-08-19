@@ -46,7 +46,7 @@ def lire_Documents(fichier):
                     titre = ligne[2]
                     auteur = ligne[3]
                     dessinateur = ligne[4]
-                    liste_documents.append(BandeDessine(Volume(Document(titre),auteur), dessinateur))
+                    liste_documents.append(BandeDessine(Volume(Document(titre),auteur)))
                 elif ligne[1] == 'Dictionnaire':
                     #type = ligne[0]
                     #sous_class = ligne[1]
@@ -68,7 +68,7 @@ def save_Documents(fichier, liste):
                     ligne = [x.type, x.sous_class, x.titre, x.auteur, x.dispo]
                     writer.writerow(ligne)
                 elif x.sous_class == 'Bandedessine':
-                    ligne = [x.type, x.sous_class, x.titre, x.auteur, x.dessinateur]
+                    ligne = [x.type, x.sous_class, x.titre, x.auteur]
                     writer.writerow(ligne)
                 elif x.sous_class == 'Dictionnaire':
                     ligne = [x.type, x.sous_class, x.titre, x.auteur]

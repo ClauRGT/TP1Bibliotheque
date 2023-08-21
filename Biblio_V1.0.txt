@@ -1,25 +1,25 @@
-La Divine Comedie;420;978-3-16-148;Dante Ali
-Orgueil et Prejuges;350;973-1-16-149;Jane Austen 
-Frankenstein;380;972-4-16-150;Mary Shelley
-Harry Potter;320;973-4-16-151;J. K. Rowling
-Les aventures de Sherlock Holmes;280;971-4-16-152;Arthur Conan Doyle
-Le Journal de Bridget Jones;240;970-4-16-153;Helen Fielding
-Jules Cesar;315;972-4-16-154;William Shakespear
-Journal;270;980-6-16-153;Ana Frank
-Trilogie Hunger Games;415;980-6-16-154;Suzanne Collins
-Le Petit Prince;99;980-6-16-155;Antoine de Saint-Exupery
-L'Iliade et L'Odyssee;452;980-6-16-156;Homero
-La Petite Maison dans la Prairie;160;980-6-16-157;Laura Ingalls Walker
-Gatsby le Magnifique;190;995-6-16-156;Francis Scott Fitzgerald
-Autant en emporte le vent;322;995-6-16-157;Margaret Mitchell
-Cent ans de solitude;240;974-6-16-151;Gabriel Garcia Marquez
-Guerre et Paix;260;973-6-16-152;Leon Tolstoi
-Madame Bovary;205;978-6-16-153;Gustave Flaubert
-Autobiographie;270;971-6-16-154;Benjamin Franklin
-Les Hauts de Hurlevent;290;977-6-16-155;Emily Bronte
-Socrate;225;975-6-16-156;Voltaire
-Le Temps de l'innocence;263;975-6-16-157;Edith Wharton
-Crime et Châtiment;310;950-6-16-157;Fiodor Dostoievski
-Le Dit du Genji;219;950-6-16-158;Murasaki Shikibu
-Le Portrait de Dorian Gray;280;950-6-16-159;Oscar Wilde
-La Maison aux esprits;223;950-6-16-160;Isabel Allende
+La Divine Comedie;Dante Aligeri
+Orgueil et Prejuges;Jane Austen 
+Frankenstein;Mary Shelley
+Harry Potter;J. K. Rowling
+Les aventures de Sherlock Holmes;Arthur Conan Doyle
+Le Journal de Bridget Jones;Helen Fielding
+Jules Cesar;William Shakespear
+Journal;Ana Frank
+Trilogie Hunger Games;Suzanne Collins
+Le Petit Prince;Antoine de Saint-Exupéry
+L'Iliade et L'Odyssee;Homero
+La Petite Maison dans la Prairie;Laura Ingalls Walker
+Gatsby le Magnifique;Francis Scott Fitzgerald
+Autant en emporte le vent;Margaret Mitchell
+Cent ans de solitude;Gabriel Garcia Marquez
+Guerre et Paix;Leon Tolstoi
+Madame Bovary;Gustave Flaubert
+Autobiographie;Benjamin Franklin
+Les Hauts de Hurlevent;Emily Bronte
+Socrate;Voltaire
+Le Temps de l'innocence;Edith Wharton
+Crime et Châtiment;Fiodor Dostoievski
+Le Dit du Genji;Murasaki Shikibu
+Le Portrait de Dorian Gray;Oscar Wilde
+La Maison aux esprits;Isabel Allende

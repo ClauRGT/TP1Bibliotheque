@@ -21,7 +21,7 @@ class Adherent(Personne):
         self.num_adherent = num_adherent
 
     def __str__(self):
-        return "Adherent| Nom: " + self.nom + " " + self.prenom + " Numéro d'adhérent: " + self.num_adherent
+        return "Adherent| Nom: " + self.nom + " " + self.prenom + " Numéro d'adhérent: " + str(self.num_adherent)
 
     @staticmethod
     def lire_clavier():

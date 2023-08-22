@@ -4,6 +4,7 @@ from pkgbibliotheque.GestionPersonne import *
 from pkgbibliotheque.GestionDocument import *
 from pkgbibliotheque.FoctionsFichier import *
 
+# pour afficher le menu principale
 def afficher_menu(lenth):
     print('*'*lenth)
     print('*', end = '')
@@ -24,12 +25,35 @@ def afficher_menu(lenth):
     print('*' * lenth)
 
 
+# pour vérifier si les livres et les adherents dans la liste d'emprunts
+# sont dans les listes d'adherents et de Documents. synchroniser
+def synchroniser_fichier(list_emprunt, list_doc, list_adherent):
+    for x in list_emprunt:
+        trouve_doc = False
+        for y in list_doc:
+            if y.titre == x.titre:
+                y.dispo = 'Non'
+                trouve_doc = True
+        if trouve_doc == False:
+            list_doc.append(Livre(Volume(Document(x.titre), 'auteur'), 'Non'))
+
+        trouve_nom = False
+        for z in list_adherent:
+            if x.nom == z.nom and x.prenom == z.prenom:
+                trouve_nom = True
+        if trouve_nom == False:
+            list_adherent.append(Adherent(Personne(x.nom, x.prenom, '000'), '000000'))
+
+# program principale
+
 lenth = 50
 choix = ''
 myBiblio = Biblio()
 myBiblio.liste_adherent = lire_Adherents('Adherents.csv')
 myBiblio.liste_doc = lire_Documents('Documents.csv')
 myBiblio.liste_emprunts = lire_Emprunts('Emprunts.csv')
+
+synchroniser_fichier(myBiblio.liste_emprunts, myBiblio.liste_doc, myBiblio.liste_adherent)
 
 while choix != 'Q':
     afficher_menu(lenth)

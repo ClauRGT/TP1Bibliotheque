@@ -1,25 +1,28 @@
-Volume;Livre;La Divine Comedie;Dante Ali;Oui
-Volume;Livre;Orgueil et Prejuges;Jane Austen ;Oui
+Volume;Livre;La Divine Comedie;Dante Ali;Non
+Volume;Livre;Orgueil et Prejuges;Jane Austen ;Non
 Volume;Livre;Frankenstein ;Mary Shelley;Oui
 Volume;Livre; Harry Potter;J. K. Rowling;Oui
-Volume;Livre;Les aventures de Sherlock Holmes;Arthur Conan Doyle;Oui
-Volume;Livre;Le Journal de Bridget Jones;Helen Fielding;Oui
-Volume;Livre;Jules Cesar;William Shakespear;Oui
-Volume;Livre;Journal;Ana Frank;Oui
-Volume;Livre;Trilogie Hunger Games;Suzanne Collins;Oui
-Volume;Livre;Le Petit Prince;Antoine de Saint-Exupéry;Oui
-Volume;Livre;L'Iliade et L'Odyssee;Homero;Oui
-Volume;Livre;La Petite Maison dans la Prairie;Laura Ingalls Walker;Oui
-Volume;Livre;Gatsby le Magnifique;Francis Scott Fitzgerald;Oui
-Volume;Livre;Autant en emporte le vent;Margaret Mitchell;Oui
-Volume;Livre;Cent ans de solitude;Gabriel Garcia Marquez;Oui
-Volume;Livre;Guerre et Paix;Leon Tolstoi;Oui
-Volume;Livre;Madame Bovary;Gustave Flaubert;Oui
+Volume;Livre;Les aventures de Sherlock Holmes;Arthur Conan Doyle;Non
+Volume;Livre;Le Journal de Bridget Jones;Helen Fielding;Non
+Volume;Livre;Jules Cesar;William Shakespear;Non
+Volume;Livre;Journal;Ana Frank;Non
+Volume;Livre;Trilogie Hunger Games;Suzanne Collins;Non
+Volume;Livre;Le Petit Prince;Antoine de Saint-Exupéry;Non
+Volume;Livre;L'Iliade et L'Odyssee;Homero;Non
+Volume;Livre;La Petite Maison dans la Prairie;Laura Ingalls Walker;Non
+Volume;Livre;Gatsby le Magnifique;Francis Scott Fitzgerald;Non
+Volume;Livre;Autant en emporte le vent;Margaret Mitchell;Non
+Volume;Livre;Cent ans de solitude;Gabriel Garcia Marquez;Non
+Volume;Livre;Guerre et Paix;Leon Tolstoi;Non
+Volume;Livre;Madame Bovary;Gustave Flaubert;Non
 Volume;Livre;Autobiographie ;Benjamin Franklin;Oui
-Volume;Livre;Les Hauts de Hurlevent;Emily Bronte;Oui
-Volume;Livre;Socrate;Voltaire;Oui
-Volume;Livre;Le Temps de l'innocence;Edith Wharton;Oui
-Volume;Livre;Crime et Châtiment;Fiodor Dostoievski;Oui
-Volume;Livre;Le Dit du Genji;Murasaki Shikibu;Oui
-Volume;Livre;Le Portrait de Dorian Gray;Oscar Wilde;Oui
-Volume;Livre;La Maison aux esprits;Isabel Allende;Oui
+Volume;Livre;Les Hauts de Hurlevent;Emily Bronte;Non
+Volume;Livre;Socrate;Voltaire;Non
+Volume;Livre;Le Temps de l'innocence;Edith Wharton;Non
+Volume;Livre;Crime et Châtiment;Fiodor Dostoievski;Non
+Volume;Livre;Le Dit du Genji;Murasaki Shikibu;Non
+Volume;Livre;Le Portrait de Dorian Gray;Oscar Wilde;Non
+Volume;Livre;La Maison aux esprits;Isabel Allende;Non
+Volume;Livre;Frankenstein;auteur;Non
+Volume;Livre;Harry Potter;auteur;Non
+Volume;Livre;Autobiographie;auteur;Non

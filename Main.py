@@ -3,6 +3,7 @@ from pkgbibliotheque.GestionBiblio import *
 from pkgbibliotheque.GestionPersonne import *
 from pkgbibliotheque.GestionDocument import *
 from pkgbibliotheque.FoctionsFichier import *
+import os
 
 # pour afficher le menu principale
 def afficher_menu(lenth):
@@ -74,12 +75,12 @@ while choix != 'Q':
                 print("Déjà supprimé!")
         if trouve == False:
             print("Ne trouve pas l'adherent!")
-        anykey = input()
         save_Adherents('Adherents.csv', myBiblio.liste_adherent)
+        os.system('pause')
 
     elif choix == '3':
         myBiblio.lister_adherent()
-        anykey = input()
+        os.system('pause')
 
     elif choix == '4':
         doc_type = input(
@@ -99,15 +100,14 @@ while choix != 'Q':
                 trouve = True
                 print(x)
                 print("Déjà supprimé!")
-                anykey = input()
         if trouve == False:
             print("Ne trouve pas le Document!")
         save_Documents('Documents.csv', myBiblio.liste_doc)
-        anykey = input()
+        os.system('pause')
 
     elif choix == '6':
         myBiblio.lister_document()
-        anykey = input()
+        os.system('pause')
 
     elif choix == '7':
         titre = input("Titre: ").strip()
@@ -143,7 +143,7 @@ while choix != 'Q':
                 save_Emprunts('Emprunts.csv', myBiblio.liste_emprunts)
                 save_Documents('Documents.csv', myBiblio.liste_doc)
                 print(empr)
-                anykey = input()
+                os.system('pause')
 
     elif choix == '8':
         titre = input("Titre:").strip()
@@ -163,9 +163,9 @@ while choix != 'Q':
             print("Ne trouve pas le Document!")
         save_Emprunts('Emprunts.csv', myBiblio.liste_emprunts)
         save_Documents('Documents.csv', myBiblio.liste_doc)
-        anykey = input()
+        os.system('pause')
 
     elif choix == '9':
         myBiblio.lister_emprunt()
-        anykey = input()
+        os.system('pause')
 

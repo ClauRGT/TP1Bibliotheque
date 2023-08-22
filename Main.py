@@ -47,22 +47,28 @@ def synchroniser_fichier(list_emprunt, list_doc, list_adherent):
 
 # program principale
 
-lenth = 50
-choix = ''
+#initialiser myBiblio
+fich_Adherent = 'Adherents.csv'
+fich_Document = 'Documents.csv'
+fich_Emprunt = 'Emprunts.csv'
+
 myBiblio = Biblio()
-myBiblio.liste_adherent = lire_Adherents('Adherents.csv')
-myBiblio.liste_doc = lire_Documents('Documents.csv')
-myBiblio.liste_emprunts = lire_Emprunts('Emprunts.csv')
+myBiblio.liste_adherent = lire_Adherents(fich_Adherent)
+myBiblio.liste_doc = lire_Documents(fich_Document)
+myBiblio.liste_emprunts = lire_Emprunts(fich_Emprunt)
 
 synchroniser_fichier(myBiblio.liste_emprunts, myBiblio.liste_doc, myBiblio.liste_adherent)
 
+lenth = 50
+choix = ''
 while choix != 'Q':
     afficher_menu(lenth)
     choix = input('Choisissez une action:').strip()
 
     if choix == '1':
         myBiblio.ajouter_adherent()
-        save_Adherents('Adherents.csv', myBiblio.liste_adherent)
+        save_Adherents(fich_Adherent, myBiblio.liste_adherent)
+
     elif choix == '2':
         nom = input("Nom:").strip()
         prenom = input("Prenom:").strip()
@@ -75,10 +81,11 @@ while choix != 'Q':
                 print("Déjà supprimé!")
         if trouve == False:
             print("Ne trouve pas l'adherent!")
-        save_Adherents('Adherents.csv', myBiblio.liste_adherent)
+        save_Adherents(fich_Adherent, myBiblio.liste_adherent)
         os.system('pause')
 
     elif choix == '3':
+        print("liste des adhérents:")
         myBiblio.lister_adherent()
         os.system('pause')
 
@@ -89,7 +96,7 @@ while choix != 'Q':
             doc_type = input(
                 "Type du Document: \n\t 1: Journal\t 2: Livre\t 3:BandeDessine\t 4: Dictionnaire\n Faire votre choix: [1,2,3,4]:").strip()
         myBiblio.ajouter_document(doc_type)
-        save_Documents('Documents.csv', myBiblio.liste_doc)
+        save_Documents(fich_Document, myBiblio.liste_doc)
 
     elif choix == '5':
         titre = input("Titre:").strip()
@@ -102,10 +109,11 @@ while choix != 'Q':
                 print("Déjà supprimé!")
         if trouve == False:
             print("Ne trouve pas le Document!")
-        save_Documents('Documents.csv', myBiblio.liste_doc)
+        save_Documents(fich_Document, myBiblio.liste_doc)
         os.system('pause')
 
     elif choix == '6':
+        print("liste des Documents:")
         myBiblio.lister_document()
         os.system('pause')
 
@@ -120,7 +128,7 @@ while choix != 'Q':
                     trouve_titre = True
                     position = int(myBiblio.liste_doc.index(x))
             if trouve_titre == False:
-                titre = input("Re-Entrez le Titre ou <quit> pour quitter: ").strip()
+                titre = input("Livre non disponible. Entrer un autre Titre ou <quit> pour quitter: ").strip()
                 if titre == 'quit':
                     quitter = True
         if quitter == False:
@@ -140,10 +148,10 @@ while choix != 'Q':
                 empr = Emprunt(titre, nom, prenom)
                 myBiblio.liste_doc[position].dispo = 'Non'
                 myBiblio.ajouter_emprunt(empr)
-                save_Emprunts('Emprunts.csv', myBiblio.liste_emprunts)
-                save_Documents('Documents.csv', myBiblio.liste_doc)
+                save_Emprunts(fich_Emprunt, myBiblio.liste_emprunts)
+                save_Documents(fich_Document, myBiblio.liste_doc)
                 print(empr)
-                os.system('pause')
+        os.system('pause')
 
     elif choix == '8':
         titre = input("Titre:").strip()
@@ -161,11 +169,12 @@ while choix != 'Q':
                 print("Déjà retourné!")
         if trouve == False:
             print("Ne trouve pas le Document!")
-        save_Emprunts('Emprunts.csv', myBiblio.liste_emprunts)
-        save_Documents('Documents.csv', myBiblio.liste_doc)
+        save_Emprunts(fich_Emprunt, myBiblio.liste_emprunts)
+        save_Documents(fich_Document, myBiblio.liste_doc)
         os.system('pause')
 
     elif choix == '9':
+        print("liste des Emprunts:")
         myBiblio.lister_emprunt()
         os.system('pause')
 

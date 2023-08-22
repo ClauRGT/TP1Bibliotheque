@@ -35,7 +35,8 @@ class Livre(Volume):
         self.sous_class = 'Livre'
 
     def __str__(self):
-        return "Livre | Titre du livre: " + self.titre + " Auteur: " + self.auteur + " Disponible: " + str(self.dispo)
+        return "Livre | Titre:" + self.titre + "; Auteur: " + self.auteur + "; Disponibilité: " + str(self.dispo)
+
 
     def emprunt(self, dispo):
         self.dispo = dispo

@@ -78,9 +78,9 @@ while choix != 'Q':
                 myBiblio.supprimer_adherent(x)
                 trouve = True
                 print(x)
-                print("Déjà supprimé!")
+                print("Suppression effectuée!")
         if trouve == False:
-            print("Ne trouve pas l'adherent!")
+            print("Cet adherent n'existe pas!")
         save_Adherents(fich_Adherent, myBiblio.liste_adherent)
         os.system('pause')
 
@@ -106,9 +106,9 @@ while choix != 'Q':
                 myBiblio.supprimer_document(x)
                 trouve = True
                 print(x)
-                print("Déjà supprimé!")
+                print("Suppression effectuée!")
         if trouve == False:
-            print("Ne trouve pas le Document!")
+            print("Ce Document n'existe pas!")
         save_Documents(fich_Document, myBiblio.liste_doc)
         os.system('pause')
 
@@ -166,9 +166,9 @@ while choix != 'Q':
                         myBiblio.liste_doc[position].dispo = 'Oui'
                 trouve = True
                 print(x)
-                print("Déjà retourné!")
+                print("Retour effectué!")
         if trouve == False:
-            print("Ne trouve pas le Document!")
+            print("Le document n'existe pas dans la liste d'Emprunts!")
         save_Emprunts(fich_Emprunt, myBiblio.liste_emprunts)
         save_Documents(fich_Document, myBiblio.liste_doc)
         os.system('pause')

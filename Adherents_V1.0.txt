@@ -7,7 +7,7 @@ Perez;Hugo;19;11215
 Wilson;John;49;11650
 Yang;Li;62;11118
 Vidal;Pier;18;11670
-Cazeu;Lynn;24;11212
+Cazeau;Lynn;24;11212
 Blanc;Stepanie;26;11340
 Dupont;Amelie;19;11668
 Pereira;Tomas;38;11533

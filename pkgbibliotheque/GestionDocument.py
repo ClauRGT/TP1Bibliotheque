@@ -11,7 +11,7 @@ class Journal(Document):
         self.date_publication = date_publication
         self.type = 'Journal'
     def __str__(self):
-        return "Journal | Titre du journal: " + self.titre + "Date de publication " + self.date_publication
+        return "Journal | Titre: " + self.titre + ";\tDate de publication: " + self.date_publication
 
     @staticmethod
     def lire_clavier():
@@ -55,10 +55,10 @@ class BandeDessine(Volume):
     def __init__(self, vol):
         super().__init__(Document(vol.titre), vol.auteur)
         self.type = 'Volume'
-        self.sous_class = 'Bandedessine'
+        self.sous_class = 'BandeDessine'
 
     def __str__(self):
-        return "Bandedessine | Titre du livre: " + self.titre + "\tDessinateur: " + self.auteur
+        return "Bandedessine | Titre: " + self.titre + ";\tDessinateur: " + self.auteur
 
     @staticmethod
     def lire_clavier():
@@ -73,7 +73,7 @@ class Dictionnaire(Volume):
         self.type = 'Volume'
         self.sous_class = 'Dictionnaire'
     def __str__(self):
-        return "Dictionnaire | Titre du livre: " + self.titre + " Auteur " + self.auteur
+        return "Dictionnaire | Titre: " + self.titre + "; Auteur: " + self.auteur
 
     @staticmethod
     def lire_clavier():

@@ -48,9 +48,9 @@ def synchroniser_fichier(list_emprunt, list_doc, list_adherent):
 # program principale
 
 #initialiser myBiblio
-fich_Adherent = 'Adherents.csv'
-fich_Document = 'Documents.csv'
-fich_Emprunt = 'Emprunts.csv'
+fich_Adherent = 'Adherents_1.csv'
+fich_Document = 'Documents_1.csv'
+fich_Emprunt = 'Emprunts_1.csv'
 
 myBiblio = Biblio()
 myBiblio.liste_adherent = lire_Adherents(fich_Adherent)

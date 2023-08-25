@@ -28,7 +28,7 @@ def afficher_menu(lenth):
 
 # pour vérifier si les livres et les adherents dans la liste d'emprunts
 # sont dans les listes d'adherents et de Documents. synchroniser
-def synchroniser_fichier(list_emprunt, list_doc, list_adherent):
+def synchroniser_listes(list_emprunt, list_doc, list_adherent):
     for x in list_emprunt:
         trouve_doc = False
         for y in list_doc:
@@ -57,7 +57,7 @@ myBiblio.liste_adherent = lire_Adherents(fich_Adherent)
 myBiblio.liste_doc = lire_Documents(fich_Document)
 myBiblio.liste_emprunts = lire_Emprunts(fich_Emprunt)
 
-synchroniser_fichier(myBiblio.liste_emprunts, myBiblio.liste_doc, myBiblio.liste_adherent)
+synchroniser_listes(myBiblio.liste_emprunts, myBiblio.liste_doc, myBiblio.liste_adherent)
 
 lenth = 50
 choix = ''
